@@ -26,7 +26,7 @@ class Heap:
     def right(i: int) -> int:
         return 2*i + 1
 
-    def _build_max_heap(self):
+    def _build_max_heap(self) -> None:
         self.heap_size = self.length
         for i in range(self.length // 2, 0, -1):
             self.max_heapify(i)
@@ -45,3 +45,10 @@ class Heap:
         if largest != i:
             self[i], self[largest] = self[largest], self[i]
             self.max_heapify(largest)
+
+    def sort(self) -> None:
+        for i in range(self.length, 1, -1):
+            self[1], self[i] = self[i], self[1]
+            self.heap_size -= 1
+            self.max_heapify(1)
+

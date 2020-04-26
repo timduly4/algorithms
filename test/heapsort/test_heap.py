@@ -32,5 +32,15 @@ class TestHeap(unittest.TestCase):
         # assertion
         self.assertEqual(heap.A, self.listing)
 
+    def test_sort(self):
+        # invocation
+        self.heap.sort()
+
+        # assertion
+        self.assertEqual(
+            self.heap.A,
+            sorted(self.listing),
+        )
+
 
 
