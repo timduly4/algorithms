@@ -5,7 +5,8 @@ class Heap:
     def __init__(self, listing: List[int]):
         self.A = listing
         self.length = len(listing)
-        self.heap_size = len(listing)  # todo: might change further on
+        self.heap_size = len(listing)
+        self._build_max_heap()
 
     def __getitem__(self, i: int) -> int:
         return self.A[i-1]
@@ -24,6 +25,11 @@ class Heap:
     @staticmethod
     def right(i: int) -> int:
         return 2*i + 1
+
+    def _build_max_heap(self):
+        self.heap_size = self.length
+        for i in range(self.length // 2, 0, -1):
+            self.max_heapify(i)
 
     def max_heapify(self, i: int) -> None:
         left = Heap.left(i)
