@@ -14,6 +14,10 @@ class Heap:
     def __setitem__(self, i: int, value: int) -> None:
         self.A[i-1] = value
 
+    def append(self, value: int) -> None:
+        self.A.append(value)
+        self.length += 1
+
     @staticmethod
     def parent(i: int) -> int:
         return i // 2
